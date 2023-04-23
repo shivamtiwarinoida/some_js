@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/time.css">
+    <style>
+        .count {
+            background-color: white;
+            color: brown;
+            border: 0.2rem solid blue;
+            box-shadow: 0.7rem 0.7rem 0.5rem aquamarine;
+            border-radius: 0.4rem;
+            padding: 0.2rem 2rem;
+            cursor: pointer;
+        }
+
+        .count:hover {
+            border-color: red;
+            box-shadow: 0.7rem 0.7rem 0.5rem yellow;
+            color: orange;
+        }
+    </style>
+    <title>Shiv s Page</title>
+</head>
+
+<body>
+    <div class="jugad">
+        <h1 class="headi imp">Code Js <button class="hide btn" id="btn1" onclick="func()">I</button></h1>
+        <nav class="navbar">
+            <ul class="list">
+                <li id="i5"><a href="time.html"><span id="time">time</span></a></li>
+                <li id="i1"><a href="todo.html">To-Do</a></li>
+                <li id="i2"><a href="count.html">Counter</a></li>
+                <li id="i3"><a href="about.html">About</a></li>
+                <li id="i4"><a href="login.html">FaQ</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="main">
+        <div class="contain watch">
+            <div class="heading">Counter</div>
+            <div class="timer" id="t1"><span class="count" id="title">0</span></div>
+            <div class="controls">
+                <button class="start" id="incr">Increase</button>
+                <button class="stop" id="decr">Decrease</button>
+                <button class="Reset" id="rese">Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="foot">
+        <div>@all right conserved by shiv am 2018 +91 8700542319</div>
+    </footer>
+    <script>
+        let val = 0;
+        let title1 = document.querySelector('#title');
+        let incr1 = document.querySelector('#incr');
+        let decr1 = document.querySelector('#decr');
+        const rese1 = document.querySelector('#rese');
+
+        incr1.addEventListener('click', () => {
+            console.log("incr");
+            val = val + 1;
+            title1.textContent = String(val);
+        });
+
+        decr1.addEventListener('click', () => {
+            val = val - 1;
+            if (val < 0) {
+                val = 0;
+            }
+            title1.textContent = String(val);
+        });
+
+        rese1.addEventListener('click', () => {
+            val = 0;
+            title1.textContent = String(val);
+        });
+    </script>
+    <script src="js/time.js"></script>
+    <script src="js/nav.js"></script>
+</body>
+
+</html>

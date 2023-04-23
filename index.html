@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/nav.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="jugad">
+        <h1 class="headi imp">Code Js <button class="hide btn" id="btn1" onclick="func()">I</button></h1>
+        <nav class="navbar">
+            <ul class="list">
+                <li id="i5"><a href="time.html"><span id="time">time</span></a></li>
+                <li id="i1"><a href="todo.html">To-Do</a></li>
+                <li id="i2"><a href="count.html">Counter</a></li>
+                <li id="i3"><a href="about.html">About</a></li>
+                <li id="i4"><a href="login.html">FaQ</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="main">
+        <div class="contain">
+            <p class="m2">Welcome to CodeJs</p>
+            <p class="m1">It is home page of our website .You can visualize it as collection of some small Js project which include
+                timer ,counter,login ,to -do list ,etc...you can check all these out and must visit for once
+            </p>
+        </div>
+    </div>
+
+    <footer class="foot">
+        <div>@all right conserved by shiv am 2018 +91 8700542319</div>
+    </footer>
+    <script>
+        let nd1 = new Date();
+        console.log(nd1);
+        const time1 = document.getElementById('time');
+        let a = nd1.getHours();
+        let b = nd1.getMinutes();
+        let str = String(a) + ":" + String(b);
+        console.log(str);
+        time1.innerHTML = str;
+    </script>
+    <script src="nav.js"></script>
+</body>
+
+</html>

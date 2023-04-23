@@ -1,0 +1,34 @@
+.contain{
+    width: 80%;
+}
+
+.abouts{
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2rem;
+    padding: 2rem;
+    flex-basis: 30%;
+}
+
+.abouts .left{
+    font-size: 1.4rem;
+    width:40%;
+}
+
+.abouts .right{
+    width: 40%;
+}
+
+.abouts .right img{
+    width: 20vh;
+}
+
+@media only screen and (max-width:650px) {
+    .abouts{
+        display: block;
+        text-align: center;
+    }
+}

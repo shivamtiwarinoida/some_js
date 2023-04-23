@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/todo">
+    <style>
+        #input1{
+            background-color: aqua;
+            font-size: 1.3rem;
+            border-radius: 0.6rem;
+            padding: 0.4rem;
+            margin: 1rem;
+            overflow: hidden;
+        }
+
+        #submit1{
+            border: none;
+            padding:0.4rem;            
+            margin: 1rem;
+            color: white;
+            background-color: blue;
+            font-size: 1.3rem;
+            border-radius: 0.4rem;
+            box-shadow: 0.6rem 0.6rem 0.6rem aqua;
+        }
+
+        #submit1:hover{
+            background-color: red;
+            border-color: orange;
+            box-shadow: 0.6rem 0.6rem 0.6rem yellow;
+        }
+
+
+        .content input{
+            font-size: 1.3rem;
+            background-color: aqua;
+            border-radius: 0.6rem;
+        }
+
+        .edit{
+            color:rgb(2, 189, 2);
+            border: hidden;
+            font-size: 1.12rem;
+            padding: 0.5rem;
+            opacity: 0.6;
+        }
+
+        .edit:hover{
+            color: white;
+            background-color: green;
+            border: 0.3rem solid greenyellow;
+            border-radius: 0.5rem;
+        }
+
+        .delete{
+            color:red;
+            border: hidden;
+            font-size: 1.12rem;
+            padding: 0.5rem;
+            opacity: 0.6;
+        }
+
+        .delete:hover{
+            color: white;
+            background-color:red;
+            border: 0.3rem solid orange;
+            border-radius: 0.5rem;
+        }
+
+        @media (max-width:500px) {
+            .h12{
+                width: auto;
+                height: auto;
+            }
+
+            #input1{
+                margin: 0rem;
+                font-size: 0.9rem;
+                display: inline-block;
+            }
+
+            .content input{
+                font-size: 0.8rem;
+            }
+        }
+
+    </style>
+    <title>Shiv s Page</title>
+</head>
+
+<body>
+    <div class="jugad">
+        <h1 class="headi imp">Code Js <button class="hide btn" id="btn1" onclick="func()">I</button></h1>
+        <nav class="navbar">
+            <ul class="list">
+                <li id="i5"><a href="time.html"><span id="time">time</span></a></li>
+                <li id="i1"><a href="todo.html">To-Do</a></li>
+                <li id="i2"><a href="count.html">Counter</a></li>
+                <li id="i3"><a href="about.html">About</a></li>
+                <li id="i4"><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </div>
+    <header class="contain h12">
+        <h2>Task List 2023</h2>
+        <form action="" id="form1" class="form1">
+            <input type="text" id="input1" placeholder="What you want to plan?" />
+            <input type="submit" id="submit1" value="Add Task">
+        </form>
+    </header>
+    <div class="main">
+        <section class="tasklist">
+            <h2 class="contain h12">Tasks</h2>
+            <div id="tasks" class="t1 contain h12">
+                <div class="task1" id="first">
+                    <div class="content ">
+                        <input type="text" class="text" value="Sample" readonly />
+                    </div>
+                    <button class="edit ">Edit</button>
+                    <button class="delete ">Delete</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="foot">
+        <div>@all right conserved by shiv am 2018 +91 8700542319</div>
+    </footer>
+
+    <script src="js/time.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/todo.js"></script>
+    <script>
+        //alert("hello!");
+        window.addEventListener('load', () => {
+            const form = document.querySelector('#form1');
+            const input = document.querySelector('#input1');
+            const list_el = document.querySelector('.tasklist');
+            console.log(form);
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const task = input.value;
+
+                if (!task) {
+                    alert("Please fill out the task");
+                    return;
+                }
+
+                const div1=document.createElement('div');
+                div1.classList.add('t1');
+                div1.classList.add('contain');
+                div1.classList.add('h12');
+                const ted1 = document.createElement('div');
+                ted1.classList.add('task1');
+
+                const ted12 = document.createElement('div');
+                //ted12.innerText=task;
+                ted12.classList.add('content');
+                div1.classList.add('action');
+                ted1.appendChild(ted12);
+
+                const task_inp = document.createElement('input');
+                task_inp.classList.add("text");
+                task_inp.type = "text";
+                task_inp.value = task;
+                task_inp.setAttribute("readonly", "readonly");
+
+
+                const edi1 = document.createElement("button");
+                edi1.classList.add("edit");
+                edi1.innerText = "Edit";
+
+                const del1 = document.createElement("button");
+                del1.classList.add("delete");
+                del1.innerText = "Delete";
+
+                ted12.appendChild(task_inp);
+                ted12.appendChild(edi1);
+                ted12.appendChild(del1);
+                div1.appendChild(ted12);
+                list_el.appendChild(div1);
+
+                input.value = "";
+
+                edi1.addEventListener('click', () => {
+                    if (edi1.innerText.toLowerCase() == 'edit') {
+                        task_inp.removeAttribute("readonly");
+                        task_inp.focus();
+                        edi1.innerText = "Save";
+                    }
+                    else{
+                        console.log("save");
+                        task_inp.setAttribute("readonly","readonly");
+                        edi1.innerText="Edit";
+                    }
+                });
+
+                del1.addEventListener('click',()=>{
+                    list_el.removeChild(div1);
+                });
+            }
+
+            );
+        });
+    </script>
+</body>
+
+</html>

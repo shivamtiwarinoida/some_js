@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: rgb(105, 61, 96);
+            color: whitesmoke;
+        }
+
+        header {
+            max-width: 800px;
+            padding: 2rem 1rem;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        header h1 {
+            font-weight: 300;
+            color: whitesmoke;
+            margin-bottom: 1rem;
+        }
+
+        #form1 {
+            display: flex;
+        }
+
+        input,
+        button {
+            appearance: none;
+            border: none;
+            outline: none;
+            background: none;
+        }
+
+        #input1 {
+            flex: 1 1 0%;
+            background-color: navy;
+            padding: 1rem;
+            border-radius: 1rem;
+            margin-right: 1rem;
+            color: whitesmoke;
+            font-size: 1.25rem;
+        }
+
+        #input::placeholder {
+            color: white;
+        }
+
+        #submit1 {
+            color: pink;
+        }
+
+        #submit1:hover {
+            opacity: 0.8;
+        }
+
+        #submit1:active {
+            opacity: 0.6;
+        }
+
+        main {
+            flex: 1 1 0%;
+            padding: 2rem;
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .tasklist {
+            padding: 2rem;
+        }
+
+        .tasklist h2 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: whitesmoke;
+            margin-bottom: 1rem;
+        }
+
+        #tasks .task1 {
+            display: flex;
+            justify-content: space-around;
+            background-color: navy;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 0.6rem;
+        }
+
+        #tasks .task1 .content .text {
+            color: white;
+            font-size: 1.12rem;
+            width: 100%;
+            display: block;
+            transition: 0.4s;
+        }
+
+        #tasks .task1 .content .text:not(:read-only) {
+            color: plum;
+        }
+
+        #tasks .task1 .action {
+            display: flex;
+            margin: 0px 0px -0.5rem;
+        }
+
+        .task1 .action button {
+            cursor: pointer;
+            margin: 0 0.5rem;
+            font-size: 1.125rem;
+            text-transform: capitalize;
+            transition: 0.4s;
+        }
+
+        .task1 .action .edit {
+            color: plum;
+        }
+
+        .task1 .action .delete {
+            color: red;
+        }
+    </style>
+    <title>Shiv s Page</title>
+</head>
+
+<body>
+    <header>
+        <h1>Task List 2023</h1>
+        <form action="func1()" id="form1">
+            <input type="text" id="input1" placeholder="What you want to plan?" />
+            <input type="submit" id="submit1" value="Add Task">
+        </form>
+    </header>
+    <main>
+        <section class="tasklist">
+            <h2>Tasks</h2>
+            <div id="tasks" class="t1">
+                <div class="task1">
+                    <div class="content">
+                        <input type="text" class="text" value="Shivam is my name" readonly />
+                    </div>
+                    <div class="action">
+                        <button class="edit">Edit</button>
+                        <button class="delete">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        //alert("hello!");
+        window.addEventListener('load', () => {
+            const form = document.querySelector('#form1');
+            const input = document.querySelector('#input1');
+            const list_el = document.querySelector('#tasks');
+            console.log(form);
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const task = input.value;
+
+                if (!task) {
+                    alert("Please fill out the task");
+                    return;
+                }
+
+                const ted1 = document.createElement('div');
+                ted1.classList.add('task1');
+
+                const ted12 = document.createElement('div');
+                //ted12.innerText=task;
+                ted1.appendChild(ted12);
+
+                const task_inp = document.createElement('input');
+                task_inp.classList.add("text");
+                task_inp.type = "text";
+                task_inp.value = task;
+                task_inp.setAttribute("readonly", "readonly");
+
+
+                const edi1 = document.createElement("button");
+                edi1.classList.add("Edit");
+                edi1.innerText = "Edit";
+
+                const del1 = document.createElement("button");
+                del1.classList.add("delete");
+                del1.innerText = "Delete";
+
+                ted12.appendChild(task_inp);
+                ted12.appendChild(del1);
+                ted12.appendChild(edi1);
+                list_el.appendChild(ted1);
+
+                input.value = "";
+
+                edi1.addEventListener('click', () => {
+                    if (edi1.innerText.toLowerCase() == 'edit') {
+                        task_inp.removeAttribute("readonly");
+                        task_inp.focus();
+                        edi1.innerText = "Save";
+                    }
+                    else{
+                        console.log("save");
+                        task_inp.setAttribute("readonly","readonly");
+                        edi1.innerText="Edit";
+                    }
+                });
+
+                del1.addEventListener('click',()=>{
+                    list_el.removeChild(ted1);
+                });
+            }
+
+            );
+        });
+    </script>
+</body>
+
+</html>

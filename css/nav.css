@@ -1,0 +1,173 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    
+    background-image: url("back3.jpg");
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.jugad{
+    background-color: rgb(20, 9, 78);
+    color: aliceblue;
+}
+
+.jugad:hover{
+    background-color: rgb(3, 3, 207);
+}
+
+.jugad:hover .list li{
+    border-color: rgb(3, 3, 207);
+}
+
+.headi{
+    text-align: center;
+}
+
+.headi:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.navbar{
+    justify-content:space-between;
+    border-radius: 0.1rem;
+    margin-top: 0px;
+    display: flex;
+    font-size: 1.4rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar .list{
+    width: 100%;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+
+.navbar .list li{
+    cursor: pointer;
+    border: 0.2rem solid rgb(20, 9, 78);;
+    border-radius: 0.6rem;
+    padding: 0.5rem;
+}
+
+.navbar .list li a{
+    text-decoration: none;
+    color: aliceblue;
+}
+
+.navbar .list li:hover{
+    background-color: red;
+    border: 0.2rem solid orange;
+    border-radius: 0.6rem;
+    padding: 0.5rem;
+}
+
+.hide{
+    display: none;
+}
+
+.btn{
+    text-decoration: none;
+    background-color: blue;
+    color: whitesmoke;
+    border: 0.2rem solid rgb(1, 1, 182);
+    border-radius: 0.3rem;
+    padding:0rem 1.4rem;
+}
+
+.btn:hover{
+    background-color: red;
+    border-color: orange;    
+}
+
+.main{
+    font-size: 1.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    height: auto;
+    text-align: center;
+}
+
+.contain{
+    margin: 6rem auto;
+    padding: 1rem ;
+    border: 0.3rem solid blue;
+    border-radius: 0.6rem;
+    box-shadow: 0.7rem 0.7rem 0.7rem aqua;
+    width: 60%;
+    background-color: aliceblue;
+    color: rgb(1, 1, 74);
+    opacity: 0.7;
+}
+
+.main .m2{
+    color: rgb(2, 36, 136);
+    margin: 2rem;
+    cursor: pointer;
+}
+
+.main .m1{
+    color:rgb(2, 36, 139);
+}
+
+.main .m2:hover{
+    text-decoration: underline;
+    color:red;
+}
+
+.contain:hover{
+    color: black;
+    opacity: 1;
+    border:0.3rem solid red;
+    box-shadow: 0.7rem 0.7rem 0.7rem orange;
+}
+
+.foot{
+    background-color: rgb(20, 9, 78);
+    color: whitesmoke;
+    display: block;
+    height: 40vh;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    cursor: pointer;
+}
+
+.foot:hover{
+    text-decoration: underline;
+    background-color: rgb(15, 2, 193);
+}
+
+@media only screen and (max-width:460px) {
+    .navbar{
+        display: block;
+        margin-top: 0px;
+    }
+
+    .navbar .list{
+        display: block;
+        margin: 0rem;
+    }
+
+    .navbar .list li{
+        display: none;
+    }
+
+    .imp{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .hide {
+        display: inline;
+    }
+}

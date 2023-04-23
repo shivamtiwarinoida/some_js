@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/nav.css">
+    <style>
+        .main .contain{
+            width:80%;
+            border-color: green;
+            box-shadow: 0.7rem 0.7rem 0.7rem greenyellow;
+            cursor: pointer;
+        }
+
+        .main .contain:hover{
+            border-color: red;
+            box-shadow: 0.7rem 0.7rem 0.7rem orange;
+            background-color: rgb(255, 225, 170);
+        }
+
+        .answer{
+            display: block;
+        }
+
+        .hide{
+            display: none;
+        }
+    </style>
+    <title>Shiv s Page</title>
+</head>
+
+<body>
+    <div class="jugad">
+        <h1 class="headi imp">Code Js <button class="hide btn" id="btn1" onclick="func()">I</button></h1>
+        <nav class="navbar">
+            <ul class="list">
+                <li id="i5"><a href="time.html"><span class="time">time</span></a></li>
+                <li id="i1"><a href="todo.html">To-Do</a></li>
+                <li id="i2"><a href="count.html">Counter</a></li>
+                <li id="i3"><a href="about.html">About</a></li>
+                <li id="i4"><a href="login.html">FaQ</a></li>
+            </ul>
+        </nav>
+    </div>
+
+        <div class="main">
+            <div class="contain">
+                <div class="accordian">
+                    <div class="question">
+                        <h4>Is Programming Hard?</h4>
+                    </div>
+                    <div class="answer hide">
+                        No! not actually ,it just need practice and consistency of your.The More you practice more you are going to learn it.
+                    </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+    <div class="main">
+        <div class="contain">
+            <div class="accordian">
+                <div class="question">
+                    <h4>What About Js?</h4>
+                </div>
+                <div class="answer hide">
+                    <p>The Language Python and JavaScript are two which are currently in damand of every institute and company ..All over world it is most useful.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="main">
+        <div class="contain">
+            <div class="accordian">
+                <div class="question">
+                    <h4>Are you a Story Teller?</h4>
+                </div>
+                <div class="answer hide">
+                    <p>No ! definately not , I am a person who believe in learning new things and from Past experiences .I wish to be Developer not a Story Teller.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="main">
+        <div class="contain">
+            <div class="accordian">
+                <div class="question">
+                    <h4>What should I Do?</h4>
+                </div>
+                <div class="answer hide">
+                    <p>Just do whatever you think is right .This is all I want to say and now everything is upto do whatever you think and you likes</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="foot">
+        <div>@all right conserved by shiv am 2018 +91 8700542319</div>
+    </footer>
+    <script src="js/login.js"></script>
+    <script>
+        let count = 0;
+        let it1 = document.getElementById("i1");
+        let it2 = document.getElementById("i2");
+        let it3 = document.getElementById("i3");
+        let it4 = document.getElementById("i4");
+        let it5 = document.getElementById("i5");
+        function func() {
+            if (count == 0) {
+                it1.style.display = "none";
+                it2.style.display = "none";
+                it3.style.display = "none";
+                it4.style.display = "none";
+                it5.style.display = "none";
+                count++;
+            }
+            else {
+                it1.style.display = "block";
+                it2.style.display = "block";
+                it3.style.display = "block";
+                it4.style.display = "block";
+                it5.style.display = "block";
+                count--;
+            }
+        }
+    </script>
+</body>
+
+</html>
